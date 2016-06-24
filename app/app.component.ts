@@ -4,6 +4,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 import { HeroService } from './hero.service';
 import { HeroesComponent } from './heroes.component';
 import { DashboardComponent } from './dashboard.component';
+import { HeroDetailComponent } from './hero-detail.component';
 
 @Component({
     selector: 'my-app',
@@ -27,17 +28,20 @@ import { DashboardComponent } from './dashboard.component';
         path: '/heroes',
         name: 'Heroes',
         component: HeroesComponent
-    }
-])
-
-@RouteConfig([
+    },
     {
         path: '/dashboard',
         name: 'Dashboard',
         component: DashboardComponent,
         useAsDefault: true
+    },
+    {
+        path: '/detail/:id',
+        name: 'HeroDetail',
+        component: HeroDetailComponent
     }
 ])
+
 export class AppComponent {
     title = 'Tour of Heroes';
 }
